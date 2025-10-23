@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- وسوم الميتا لتحسين ظهور الموقع في محركات البحث (SEO) -->
+    <meta name="description" content="الجو الحاكم - موقع بلمسة الهاكرز وواجهة طرفية متقدمة (Terminal) لتداول المعلومات والبروتوكولات الآمنة.">
+    <meta name="keywords" content="الجو الحاكم, هاكر, ثيم هاكر, واجهة طرفية, برمجة, أمن سيبراني, Terminal, Hacker Theme">
+    <meta name="author" content="AI Generated Site">
+    
+    <title>الجو الحاكم - واجهة هاكر</title>
+    <!-- تحميل Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- تحميل خط VT323 لمظهر الواجهة الطرفية (Terminal) -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    
+    <style>
+        /* تعريف الألوان والثيم */
+        :root {
+            --bg-color: #0d1117; /* أسود داكن للخلفية */
+            --primary-green: #39FF14; /* أخضر نيون براق */
+            --secondary-green: #007000; /* أخضر أغمق */
+        }
+        body {
+            font-family:  VT323 , monospace;
+            background-color: var(--bg-color);
+            color: var(--primary-green);
+        }
+        /* تأثير المؤشر الوامض (Blinking Cursor Effect) */
+        .blinking-cursor {
+            color: var(--primary-green);
+            animation: blink 1s step-start infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        /* تخصيص شريط التمرير (Scrollbar) ليناسب الثيم */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-green);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-green);
+        }
+        /* لتناسب الخط أحادي المسافة مع التصميم العربي */
+        .terminal-text {
+            word-spacing: -2px; /* تقليل المسافة بين الكلمات قليلاً */
+            line-height: 1.5;
+        }
+
+    </style>
+</head>
+<body class="p-4 sm:p-8 min-h-screen">
+
+    <div class="max-w-6xl mx-auto border-2 border-primary-green shadow-lg shadow-secondary-green p-4 sm:p-6 rounded-lg">
+        
+        <!-- رأس الصفحة (Header) - شريط العنوان -->
+        <header class="mb-8 border-b border-primary-green pb-2">
+            <div class="flex justify-between items-center text-xl sm:text-2xl">
+                <!-- اسم الموقع -->
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-widest">
+                    الجو الحاكم <span class="text-red-500">_</span>
+                </h1>
+                <!-- أزرار الواجهة الطرفية -->
+                <div class="flex space-x-2 space-x-reverse">
+                    <span class="w-4 h-4 bg-red-600 rounded-full inline-block" title="إغلاق"></span>
+                    <span class="w-4 h-4 bg-yellow-400 rounded-full inline-block" title="تصغير"></span>
+                    <span class="w-4 h-4 bg-primary-green rounded-full inline-block" title="تكبير"></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- محتوى الواجهة الطرفية الرئيسي -->
+        <main class="terminal-text text-lg sm:text-xl overflow-y-auto h-auto max-h-[80vh]">
+            
+            <div id="output-area">
+                <!-- شاشة بدء التشغيل -->
+                <p class="text-yellow-400">
+                    [[ بدء التشغيل: نظام "الجو الحاكم" v2.0 ]]
+                </p>
+                <p>
+                    <span class="text-gray-500">[20:45:33]</span> Initializing core systems... <span class="text-green-500">Done</span>
+                </p>
+                <p>
+                    <span class="text-gray-500">[20:45:34]</span> Establishing secure connection... <span class="text-yellow-400">Auth Required</span>
+                </p>
+                <br>
+                <!-- منطقة النص المتزايد (Typewriter Effect) -->
+                <div id="typing-area">
+                    <span class="text-red-500">Root@Al-Hakim</span>:<span class="text-blue-400">/home/access</span>$ cat welcome_message.txt<span class="blinking-cursor">_</span>
+                </div>
+            </div>
+            
+            <!-- محتوى ثابت للمحاكاة -->
+            <div id="static-content" class="mt-8 hidden">
+                <br>
+                <p class="text-gray-400">
+                    ---------------------------------------------------
+                </p>
+                <p>
+                    <span class="text-cyan-400">[ معلومات الملف ]</span>
+                </p>
+                <p>
+                    <span class="text-red-500">الاسم:</span> وحدة التحكم الرئيسية
+                </p>
+                <p>
+                    <span class="text-red-500">الحالة:</span> <span class="text-green-500">نشط</span>
+                </p>
+                <p class="text-gray-400">
+                    ---------------------------------------------------
+                </p>
+                <br>
+                <!-- قائمة محاكاة الأوامر -->
+                <p class="text-yellow-400">
+                    <span class="text-red-500">البيانات الأساسية:</span> 
+                </p>
+                <p class="ml-4 sm:ml-8">
+                    - <span class="text-green-500">تحليل الأنماط:</span> رصد الأنشطة السيبرانية المشبوهة.
+                </p>
+                <p class="ml-4 sm:ml-8">
+                    - <span class="text-green-500">تشفير متقدم:</span> تأمين قنوات الاتصال.
+                </p>
+                <p class="ml-4 sm:ml-8">
+                    - <span class="text-green-500">الوصول للنظام:</span> تفعيل بروتوكول S_K-3.
+                </p>
+                <br>
+                
+                <p>
+                    <span class="text-red-500">Root@Al-Hakim</span>:<span class="text-blue-400">/home/access</span>$ <span class="blinking-cursor">_</span>
+                </p>
+            </div>
+            
+        </main>
+
+        <!-- تذييل الصفحة (Footer) - محاكاة معلومات النظام -->
+        <footer class="mt-8 border-t border-primary-green pt-2 text-sm text-center text-gray-400">
+            <p>
+                الجو الحاكم | &copy; 2024 - جميع الحقوق محفوظة | محاكاة واجهة نظام آمن
+            </p>
+        </footer>
+
+    </div>
+
+    <script>
+        // النص الذي سيتم عرضه بتأثير الآلة الكاتبة
+        const fullText = "أهلاً بك في الجو الحاكم.\nنظامنا مصمم للمراقبة والتحليل العميق في الظل. \nنحن نسيطر على البيانات ونُحدد الخوارزميات. \nلا تترك أي أثر. ابدأ العمل الآن.";
+        
+        const typingArea = document.getElementById( typing-area );
+        const staticContent = document.getElementById( static-content );
+        let index = 0;
+        let speed = 50; // سرعة الكتابة بالمللي ثانية
+        
+        function typeWriter() {
+            if (index < fullText.length) {
+                // استبدال النص الحالي للحفاظ على المؤشر في مكانه
+                let currentText = typingArea.innerHTML.replace( <span class="blinking-cursor">_</span> ,   );
+
+                let char = fullText.charAt(index);
+                
+                if (char ===  \n ) {
+                    // إذا كان السطر جديدًا، استخدم عنصر <br> لإضافة مسافة سطرية
+                    currentText +=  <br> ;
+                } else {
+                    currentText += char;
+                }
+                
+                // إعادة إضافة المؤشر
+                typingArea.innerHTML = currentText +  <span class="blinking-cursor">_</span> ;
+                
+                index++;
+                setTimeout(typeWriter, speed);
+            } else {
+                // إزالة المؤشر من سطر الأمر بعد انتهاء الكتابة
+                typingArea.innerHTML = typingArea.innerHTML.replace( <span class="blinking-cursor">_</span> ,   );
+                
+                // عرض المحتوى الثابت بعد انتهاء الكتابة بفترة قصيرة
+                setTimeout(() => {
+                    staticContent.classList.remove( hidden );
+                    // تمرير الصفحة للأسفل لعرض المحتوى الجديد
+                    document.querySelector( main ).scrollTop = document.querySelector( main ).scrollHeight;
+                }, 1000); // انتظر ثانية واحدة
+            }
+        }
+
+        // بدء تأثير الآلة الكاتبة عند تحميل الصفحة
+        window.onload = typeWriter;
+
+    </script>
+</body>
+</html>
