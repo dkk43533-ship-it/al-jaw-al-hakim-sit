@@ -3,277 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake Image Extractor - عملية الاختراق النهائية</title>
-    <!-- تحميل Tailwind CSS CDN -->
+    <title>الحكمدار بيحبكك - تنزيل تطبيقات الواتساب المعدلة</title>
+    <!-- تحميل Tailwind CSS للستايلات الحديثة والمستجيبة -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- تحميل الخطوط: Monospace للمظهر التقني -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <style>
-        @import url( https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Cairo:wght@400;700&display=swap );
+        /* تعريف خط القاهرة ليتناسب مع اللغة العربية */
+        body {
+            font-family:   Cairo , sans-serif;
+            background-color: #0d0d0f; /* خلفية داكنة جداً */
+            color: #d1d5db; /* لون نص خفيف */
+        }
         
-        :root {
-            --neon-green: #39FF14;
+        /* تأثير التوهج للعنوان - Neon Glow */
+        .neon-glow {
+            text-shadow: 0 0 7px #d122e3, 0 0 10px #d122e3, 0 0 21px #d122e3, 0 0 42px #a32cc4, 0 0 82px #a32cc4, 0 0 92px #a32cc4, 0 0 102px #a32cc4, 0 0 151px #a32cc4;
+            animation: flicker 1.5s infinite alternate;
         }
 
-        body {
-            font-family:  Cairo , sans-serif,  Roboto Mono , monospace;
-            direction: rtl; 
-        }
-        .hacker-text {
-            color: var(--neon-green);
-            font-family:  Roboto Mono , monospace;
-            text-shadow: 0 0 5px rgba(57, 255, 20, 0.7);
-        }
-        .hacker-bg {
-            background-color: #0d1117; 
-        }
-        /* لإخفاء شريط التمرير ولكن السماح بالتمرير */
-        .overflow-hidden-y {
-            overflow-y: hidden;
-        }
-    </style>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                         neon :  #39FF14 ,
-                    }
-                }
+        /* تحريك التوهج الخفيف */
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                opacity: 0.8;
             }
         }
-    </script>
-</head>
-<body class="hacker-bg min-h-screen flex items-center justify-center p-4 overflow-hidden-y">
-
-    <!-- حاوية التأثيرات بالكامل -->
-    <div id="mainContainer" class="w-full h-full absolute top-0 left-0 flex items-center justify-center p-4">
         
-        <!-- Canvas لتأثير الماتريكس (مخفي مبدئياً) -->
-        <canvas id="matrixCanvas" class="absolute top-0 left-0 w-full h-full hidden"></canvas>
+        /* ستايل بطاقة التطبيق مع حدود موف متوهجة */
+        .app-card {
+            border: 2px solid #a32cc4;
+            box-shadow: 0 0 15px rgba(163, 44, 196, 0.7); /* توهج حول البطاقة */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-        <!-- المحتوى الرئيسي (واجهة المستخدم) -->
-        <div id="uiContainer" class="w-full max-w-4xl border-2 border-neon rounded-lg p-6 sm:p-8 shadow-2xl relative z-10 bg-gray-900/90 transition-opacity duration-500">
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(209, 34, 227, 0.9); /* توهج أقوى عند المرور */
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- شريط التنقل (Header) -->
+    <header class="bg-gray-900 border-b-4 border-fuchsia-600/50 p-4 shadow-2xl">
+        <div class="container mx-auto flex justify-center items-center">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-fuchsia-400 neon-glow">
+                الحكمدار بيحبكك
+            </h1>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي: منطقة تنزيل التطبيقات -->
+    <main class="container mx-auto p-4 py-12 md:p-10">
+        <h2 class="text-center text-3xl md:text-4xl font-bold mb-12 text-white">
+            مملكة الواتساب المعدل - إستقرار وأداء
+        </h2>
+
+        <!-- شبكة بطاقات التطبيقات (5 تطبيقات) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <!-- العنوان الرئيسي -->
-            <header class="mb-8 text-center border-b border-neon pb-4">
-                <h1 class="text-4xl font-bold hacker-text mb-2">
-                    بروتوكول الصورة 404
-                </h1>
-                <p class="text-gray-400 text-sm">
-                    الرجاء إدخال الرقم التعريفي للهدف لبدء بروتوكول السحب.
-                </p>
-            </header>
-
-            <!-- منطقة الإدخال والتحكم -->
-            <div id="inputSection" class="flex flex-col sm:flex-row gap-4 mb-8">
-                <input type="text" id="targetID" placeholder="أدخل الرقم التعريفي للهدف (مثال: 00966...)" 
-                       class="flex-grow p-3 bg-gray-800 text-neon border border-neon rounded-md focus:ring-2 focus:ring-neon focus:border-transparent transition duration-300"
-                >
-                <button id="startButton" onclick="startHacking()" 
-                        class="w-full sm:w-auto px-6 py-3 bg-neon text-black font-bold rounded-md uppercase transition duration-300 hover:bg-white hover:text-neon shadow-lg hover:shadow-neon/50"
-                >
-                    بدء عملية السحب
-                </button>
-            </div>
-
-            <!-- سجل الأوامر الوهمي (الكونسول) -->
-            <div id="consoleSection" class="h-64 bg-black p-4 rounded-lg border border-neon overflow-y-scroll hacker-text text-sm mb-4">
-                <pre id="logOutput" class="whitespace-pre-wrap"></pre>
-                <span id="consoleCursor" class="inline-block bg-neon w-2 h-4 animate-pulse"></span>
-            </div>
-            
-            <!-- منطقة النتيجة الناجحة (مخفية مبدئياً) -->
-            <div id="resultArea" class="mt-8 p-6 bg-green-900/30 rounded-lg hidden border-2 border-green-500">
-                <h3 class="text-3xl font-bold text-center mb-4 text-green-400">
-                    ✅ تم سحب الصور بنجاح!
-                </h3>
-                <p class="text-gray-300 text-center mb-6">
-                    تم اعتراض الحزمة بنجاح من الخادم البعيد للرقم: <span id="pulledNumber" class="text-neon font-bold"></span>
-                </p>
-                
-                <!-- عرض وهمي للصور المسحوبة -->
-                <div id="imageDisplay" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    <!-- Placeholder Images (وهمية) -->
-                    <img src="https://placehold.co/100x100/39FF14/0d1117?text=Image+01" class="rounded-lg shadow-lg border border-neon transition hover:scale-105" alt="صورة مسحوبة 1">
-                    <img src="https://placehold.co/100x100/39FF14/0d1117?text=Image+02" class="rounded-lg shadow-lg border border-neon transition hover:scale-105" alt="صورة مسحوبة 2">
-                    <img src="https://placehold.co/100x100/39FF14/0d1117?text=Image+03" class="rounded-lg shadow-lg border border-neon transition hover:scale-105" alt="صورة مسحوبة 3">
-                    <img src="https://placehold.co/100x100/39FF14/0d1117?text=Image+04" class="rounded-lg shadow-lg border border-neon transition hover:scale-105" alt="صورة مسحوبة 4">
+            <!-- بطاقة التطبيق 1: النسخة الأساسية -->
+            <div class="app-card bg-gray-800/50 p-6 rounded-xl">
+                <div class="flex items-center space-x-4 space-x-reverse mb-4">
+                    <!-- أيقونة واتساب بسيطة باستخدام SVG -->
+                    <svg class="w-10 h-10 text-fuchsia-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10 2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm4 11.5l-2-1v2H8v-2l-2 1V7c0-2.21 1.79-4 4-4s4 1.79 4 4v6.5z" clip-rule="evenodd"></path>
+                    </svg>
+                    <h3 class="text-2xl font-bold text-fuchsia-400">النسخة الأساسية (V12)</h3>
                 </div>
-                
-                <div class="mt-6 text-center">
-                     <button onclick="resetApp()" class="px-4 py-2 bg-green-600 text-white font-bold rounded-md hover:bg-green-700 transition duration-300">
-                         تشغيل عملية جديدة
-                     </button>
+                <p class="text-gray-400 mb-6">نسخة موثوقة ومستقرة بميزات الخصوصية الفائقة، خالية من الإعلانات.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-sm font-semibold text-fuchsia-300">الحجم: 55MB</span>
+                    <!-- تحديث الرابط هنا -->
+                    <a href="https://download.hakamdar.com/basic_v12.apk" target="_blank" class="inline-block px-6 py-3 bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-bold rounded-full transition duration-300 shadow-lg shadow-fuchsia-500/30">
+                        تحميل الآن
+                    </a>
                 </div>
             </div>
 
-            <!-- رسالة التحميل أثناء تأثير الماتريكس -->
-            <div id="matrixMessage" class="absolute inset-0 flex items-center justify-center bg-black/50 z-20 hidden">
-                <p class="text-3xl font-bold text-white p-4 rounded-lg animate-pulse border-2 border-neon hacker-text">
-                    جاري فك تشفير المصفوفة... يرجى الانتظار
-                </p>
+            <!-- بطاقة التطبيق 2: نسخة البلس -->
+            <div class="app-card bg-gray-800/50 p-6 rounded-xl">
+                <div class="flex items-center space-x-4 space-x-reverse mb-4">
+                    <svg class="w-10 h-10 text-fuchsia-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10 2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm4 11.5l-2-1v2H8v-2l-2 1V7c0-2.21 1.79-4 4-4s4 1.79 4 4v6.5z" clip-rule="evenodd"></path>
+                    </svg>
+                    <h3 class="text-2xl font-bold text-fuchsia-400">نسخة البلس (V9)</h3>
+                </div>
+                <p class="text-gray-400 mb-6">مزايا متقدمة وإضافات ثيمات جنونية لتخصيص لا نهائي.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-sm font-semibold text-fuchsia-300">الحجم: 60MB</span>
+                    <!-- تحديث الرابط هنا -->
+                    <a href="https://download.hakamdar.com/plus_v9.apk" target="_blank" class="inline-block px-6 py-3 bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-bold rounded-full transition duration-300 shadow-lg shadow-fuchsia-500/30">
+                        تحميل الآن
+                    </a>
+                </div>
+            </div>
+            
+            <!-- بطاقة التطبيق 3: واتساب للشركات -->
+            <div class="app-card bg-gray-800/50 p-6 rounded-xl">
+                <div class="flex items-center space-x-4 space-x-reverse mb-4">
+                    <svg class="w-10 h-10 text-fuchsia-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10 2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm4 11.5l-2-1v2H8v-2l-2 1V7c0-2.21 1.79-4 4-4s4 1.79 4 4v6.5z" clip-rule="evenodd"></path>
+                    </svg>
+                    <h3 class="text-2xl font-bold text-fuchsia-400">واتساب للشركات (V5)</h3>
+                </div>
+                <p class="text-gray-400 mb-6">مخصص للأعمال، مع ميزات الرد الآلي وإدارة جهات الاتصال بكفاءة.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-sm font-semibold text-fuchsia-300">الحجم: 58MB</span>
+                    <!-- تحديث الرابط هنا -->
+                    <a href="https://download.hakamdar.com/business_v5.apk" target="_blank" class="inline-block px-6 py-3 bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-bold rounded-full transition duration-300 shadow-lg shadow-fuchsia-500/30">
+                        تحميل الآن
+                    </a>
+                </div>
+            </div>
+            
+            <!-- بطاقة التطبيق 4: نسخة لايت -->
+            <div class="app-card bg-gray-800/50 p-6 rounded-xl">
+                <div class="flex items-center space-x-4 space-x-reverse mb-4">
+                    <svg class="w-10 h-10 text-fuchsia-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10 2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm4 11.5l-2-1v2H8v-2l-2 1V7c0-2.21 1.79-4 4-4s4 1.79 4 4v6.5z" clip-rule="evenodd"></path>
+                    </svg>
+                    <h3 class="text-2xl font-bold text-fuchsia-400">نسخة لايت (V3)</h3>
+                </div>
+                <p class="text-gray-400 mb-6">نسخة خفيفة وسريعة لمن يبحث عن الأداء العالي واستهلاك أقل للبيانات.</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-sm font-semibold text-fuchsia-300">الحجم: 40MB</span>
+                    <!-- تحديث الرابط هنا -->
+                    <a href="https://download.hakamdar.com/lite_v3.apk" target="_blank" class="inline-block px-6 py-3 bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-bold rounded-full transition duration-300 shadow-lg shadow-fuchsia-500/30">
+                        تحميل الآن
+                    </a>
+                </div>
+            </div>
+
+            <!-- بطاقة التطبيق 5: نسخة النيون -->
+            <div class="app-card bg-gray-800/50 p-6 rounded-xl lg:col-span-1 md:col-span-2 mx-auto md:mx-0 lg:mx-0">
+                <div class="flex items-center space-x-4 space-x-reverse mb-4">
+                    <svg class="w-10 h-10 text-fuchsia-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10 2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm4 11.5l-2-1v2H8v-2l-2 1V7c0-2.21 1.79-4 4-4s4 1.79 4 4v6.5z" clip-rule="evenodd"></path>
+                    </svg>
+                    <h3 class="text-2xl font-bold text-fuchsia-400">نسخة النيون (V8)</h3>
+                </div>
+                <p class="text-gray-400 mb-6">أحدث الميزات مع ثيم مُسبق التعيين بثيم النيون الفاجر!</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-sm font-semibold text-fuchsia-300">الحجم: 65MB</span>
+                    <!-- تحديث الرابط هنا -->
+                    <a href="https://download.hakamdar.com/neon_v8.apk" target="_blank" class="inline-block px-6 py-3 bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-bold rounded-full transition duration-300 shadow-lg shadow-fuchsia-500/30">
+                        تحميل الآن
+                    </a>
+                </div>
             </div>
 
         </div>
+    </main>
 
-    </div>
+    <!-- التذييل (Footer) -->
+    <footer class="mt-12 p-6 bg-gray-900 border-t-4 border-fuchsia-600/50">
+        <div class="container mx-auto text-center">
+            <p class="text-4xl font-black text-fuchsia-500 neon-glow">
+                اتفرج علي العظمه
+            </p>
+            <p class="text-sm text-gray-500 mt-2">
+                © 2025 الحكمدار بيحبكك. جميع الحقوق محفوظة.
+            </p>
+        </div>
+    </footer>
 
-    <script>
-        const logOutput = document.getElementById( logOutput );
-        const resultArea = document.getElementById( resultArea );
-        const startButton = document.getElementById( startButton );
-        const targetIDInput = document.getElementById( targetID );
-        const consoleCursor = document.getElementById( consoleCursor );
-        const uiContainer = document.getElementById( uiContainer );
-        const matrixCanvas = document.getElementById( matrixCanvas );
-        const matrixMessage = document.getElementById( matrixMessage );
-        const pulledNumber = document.getElementById( pulledNumber );
-
-        // متغيرات الماتريكس
-        const ctx = matrixCanvas.getContext( 2d );
-        let streams = [];
-        const fontSize = 16;
-        let columns;
-        let animationFrameId;
-
-        // دالة لتهيئة الكونسول
-        function log(message, type =  INFO ) {
-            const time = new Date().toLocaleTimeString( en-US , { hour12: false });
-            const prefix = type ===  SUCCESS  ?  ✅ SUCCESS  : (type ===  ERROR  ?  ❌ ERROR  :  🔵 INFO );
-            const color = type ===  SUCCESS  ?  text-green-400  : (type ===  ERROR  ?  text-red-500  :  text-neon );
-            
-            const line = document.createElement( div );
-            line.className = `hacker-text ${color}`;
-            line.innerHTML = `[${time}] ${prefix}: ${message}`;
-            logOutput.appendChild(line);
-            
-            logOutput.scrollTop = logOutput.scrollHeight;
-        }
-
-        // --- وظائف تأثير الماتريكس ---
-        
-        // دالة لتهيئة الكانفاس
-        function initMatrix() {
-            matrixCanvas.width = window.innerWidth;
-            matrixCanvas.height = window.innerHeight;
-            columns = matrixCanvas.width / fontSize;
-            streams = new Array(Math.floor(columns)).fill(0); // Y position for each column
-            
-            ctx.fillStyle =  #0d1117 ;
-            ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-        }
-
-        // دالة لرسم إطار واحد من الماتريكس
-        function drawMatrix() {
-            // تظليل الخلفية بشفافية لإعطاء تأثير تلاشي الذيل
-            ctx.fillStyle =  rgba(13, 17, 23, 0.05) ;
-            ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-            
-            ctx.font = `${fontSize}px  Roboto Mono , monospace`;
-            
-            for (let i = 0; i < streams.length; i++) {
-                const text = String.fromCharCode(48 + Math.random() * 9); // أرقام بسيطة
-                const x = i * fontSize;
-                let y = streams[i];
-
-                // لون النيون الأخضر
-                ctx.fillStyle =  #39FF14 ; 
-                ctx.fillText(text, x, y);
-
-                // تسريع الهبوط قليلاً
-                if (y > matrixCanvas.height && Math.random() > 0.98) {
-                    streams[i] = 0; // إعادة السلسلة من الأعلى
-                } else {
-                    streams[i] = y + fontSize; // تحريك السلسلة للأسفل
-                }
-            }
-            animationFrameId = requestAnimationFrame(drawMatrix);
-        }
-
-        // دالة بدء تأثير الماتريكس
-        function startMatrixEffect() {
-            initMatrix();
-            matrixCanvas.classList.remove( hidden );
-            uiContainer.style.opacity =  0.1 ; // إخفاء واجهة المستخدم قليلاً
-            matrixMessage.classList.remove( hidden );
-            
-            drawMatrix(); // بدء حلقة الأنميشن
-            
-            // إيقاف تأثير الماتريكس بعد 6 ثواني والانتقال إلى شاشة النجاح
-            setTimeout(stopMatrixEffect, 6000); 
-        }
-
-        // دالة إيقاف تأثير الماتريكس
-        function stopMatrixEffect() {
-            cancelAnimationFrame(animationFrameId);
-            matrixCanvas.classList.add( hidden );
-            matrixMessage.classList.add( hidden );
-            uiContainer.style.opacity =  1 ;
-            
-            // عرض شاشة النجاح
-            completeHacking();
-        }
-
-        // --- وظائف التحكم في التطبيق ---
-
-        // دالة نهاية العملية (نجاح)
-        function completeHacking() {
-            const targetID = targetIDInput.value.trim();
-            
-            // إخفاء أقسام الإدخال والكونسول
-            document.getElementById( inputSection ).classList.add( hidden );
-            document.getElementById( consoleSection ).classList.add( hidden );
-            
-            // تحديث الرقم المسحوب
-            pulledNumber.textContent = targetID;
-            
-            // إظهار منطقة النتيجة الناجحة
-            resultArea.classList.remove( hidden );
-            
-            // إعداد رسالة ترحيبية في الكونسول (رغم أنها ستكون مخفية)
-            log(`تم سحب البيانات بنجاح من رقم الهدف: ${targetID}`,  SUCCESS );
-        }
-
-        // دالة البدء الرئيسية
-        function startHacking() {
-            const targetID = targetIDInput.value.trim();
-            if (!targetID) {
-                log( الرجاء إدخال رقم هدف صالح أولاً. ,  ERROR );
-                return;
-            }
-
-            startButton.disabled = true;
-            startButton.textContent =  جاري الاتصال بالخادم... ;
-            
-            log(`بدء الاتصال بالخادم الهدف باستخدام الرقم: ${targetID}`,  INFO );
-            
-            // خطوة تهيئة سريعة في الكونسول قبل الماتريكس
-            setTimeout(() => {
-                log( تمت المصادقة - جاري الدخول إلى بروتوكول فك التشفير العميق... ,  SUCCESS );
-                
-                // الانتقال إلى تأثير الماتريكس
-                setTimeout(startMatrixEffect, 1500); 
-            }, 1000);
-        }
-
-        // دالة إعادة تعيين التطبيق
-        function resetApp() {
-            document.getElementById( inputSection ).classList.remove( hidden );
-            document.getElementById( consoleSection ).classList.remove( hidden );
-            resultArea.classList.add( hidden );
-            startButton.disabled = false;
-            startButton.textContent =  بدء عملية السحب ;
-            logOutput.innerHTML =   ;
-            targetIDInput.value =   ;
-            
-            log( نظام محاكاة الاختراق (GHS) V2.0 جاهز. ,  SUCCESS );
-            log( الرجاء إدخال الرقم التعريفي للهدف وبدء العملية. ,  INFO );
-        }
-        
-        // عند تحميل النافذة لأول مرة
-        window.onload = resetApp;
-        window.onresize = initMatrix; // إعادة تهيئة الماتريكس عند تغيير حجم النافذة
-
-    </script>
 </body>
 </html>
