@@ -3,193 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- وسوم الميتا لتحسين ظهور الموقع في محركات البحث (SEO) -->
-    <meta name="description" content="الجو الحاكم - موقع بلمسة الهاكرز وواجهة طرفية متقدمة (Terminal) لتداول المعلومات والبروتوكولات الآمنة.">
-    <meta name="keywords" content="الجو الحاكم, هاكر, ثيم هاكر, واجهة طرفية, برمجة, أمن سيبراني, Terminal, Hacker Theme">
-    <meta name="author" content="AI Generated Site">
-    
-    <title>الجو الحاكم - واجهة هاكر</title>
-    <!-- تحميل Tailwind CSS -->
+    <title>Fake Image Extractor - عملية الاختراق النهائية</title>
+    <!-- تحميل Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- تحميل خط VT323 لمظهر الواجهة الطرفية (Terminal) -->
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    
+    <!-- تحميل الخطوط: Monospace للمظهر التقني -->
     <style>
-        /* تعريف الألوان والثيم */
-        :root {
-            --bg-color: #0d1117; /* أسود داكن للخلفية */
-            --primary-green: #39FF14; /* أخضر نيون براق */
-            --secondary-green: #007000; /* أخضر أغمق */
-        }
-        body {
-            font-family:  VT323 , monospace;
-            background-color: var(--bg-color);
-            color: var(--primary-green);
-        }
-        /* تأثير المؤشر الوامض (Blinking Cursor Effect) */
-        .blinking-cursor {
-            color: var(--primary-green);
-            animation: blink 1s step-start infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-        /* تخصيص شريط التمرير (Scrollbar) ليناسب الثيم */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-color);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--secondary-green);
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-green);
-        }
-        /* لتناسب الخط أحادي المسافة مع التصميم العربي */
-        .terminal-text {
-            word-spacing: -2px; /* تقليل المسافة بين الكلمات قليلاً */
-            line-height: 1.5;
-        }
-
-    </style>
-</head>
-<body class="p-4 sm:p-8 min-h-screen">
-
-    <div class="max-w-6xl mx-auto border-2 border-primary-green shadow-lg shadow-secondary-green p-4 sm:p-6 rounded-lg">
+        @import url( https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Cairo:wght@400;700&display=swap );
         
-        <!-- رأس الصفحة (Header) - شريط العنوان -->
-        <header class="mb-8 border-b border-primary-green pb-2">
-            <div class="flex justify-between items-center text-xl sm:text-2xl">
-                <!-- اسم الموقع -->
-                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-widest">
-                    الجو الحاكم <span class="text-red-500">_</span>
+        :root {
+            --neon-green: #39FF14;
+        }
+
+        body {
+            font-family:  Cairo , sans-serif,  Roboto Mono , monospace;
+            direction: rtl; 
+        }
+        .hacker-text {
+            color: var(--neon-green);
+            font-family:  Roboto Mono , monospace;
+            text-shadow: 0 0 5px rgba(57, 255, 20, 0.7);
+        }
+        .hacker-bg {
+            background-color: #0d1117; 
+        }
+        /* لإخفاء شريط التمرير ولكن السماح بالتمرير */
+        .overflow-hidden-y {
+            overflow-y: hidden;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                         neon :  #39FF14 ,
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="hacker-bg min-h-screen flex items-center justify-center p-4 overflow-hidden-y">
+
+    <!-- حاوية التأثيرات بالكامل -->
+    <div id="mainContainer" class="w-full h-full absolute top-0 left-0 flex items-center justify-center p-4">
+        
+        <!-- Canvas لتأثير الماتريكس (مخفي مبدئياً) -->
+        <canvas id="matrixCanvas" class="absolute top-0 left-0 w-full h-full hidden"></canvas>
+
+        <!-- المحتوى الرئيسي (واجهة المستخدم) -->
+        <div id="uiContainer" class="w-full max-w-4xl border-2 border-neon rounded-lg p-6 sm:p-8 shadow-2xl relative z-10 bg-gray-900/90 transition-opacity duration-500">
+            
+            <!-- العنوان الرئيسي -->
+            <header class="mb-8 text-center border-b border-neon pb-4">
+                <h1 class="text-4xl font-bold hacker-text mb-2">
+                    بروتوكول الصورة 404
                 </h1>
-                <!-- أزرار الواجهة الطرفية -->
-                <div class="flex space-x-2 space-x-reverse">
-                    <span class="w-4 h-4 bg-red-600 rounded-full inline-block" title="إغلاق"></span>
-                    <span class="w-4 h-4 bg-yellow-400 rounded-full inline-block" title="تصغير"></span>
-                    <span class="w-4 h-4 bg-primary-green rounded-full inline-block" title="تكبير"></span>
-                </div>
-            </div>
-        </header>
+                <p class="text-gray-400 text-sm">
+                    الرجاء إدخال الرقم التعريفي للهدف لبدء بروتوكول السحب.
+                </p>
+            </header>
 
-        <!-- محتوى الواجهة الطرفية الرئيسي -->
-        <main class="terminal-text text-lg sm:text-xl overflow-y-auto h-auto max-h-[80vh]">
-            
-            <div id="output-area">
-                <!-- شاشة بدء التشغيل -->
-                <p class="text-yellow-400">
-                    [[ بدء التشغيل: نظام "الجو الحاكم" v2.0 ]]
-                </p>
-                <p>
-                    <span class="text-gray-500">[20:45:33]</span> Initializing core systems... <span class="text-green-500">Done</span>
-                </p>
-                <p>
-                    <span class="text-gray-500">[20:45:34]</span> Establishing secure connection... <span class="text-yellow-400">Auth Required</span>
-                </p>
-                <br>
-                <!-- منطقة النص المتزايد (Typewriter Effect) -->
-                <div id="typing-area">
-                    <span class="text-red-500">Root@Al-Hakim</span>:<span class="text-blue-400">/home/access</span>$ cat welcome_message.txt<span class="blinking-cursor">_</span>
-                </div>
+            <!-- منطقة الإدخال والتحكم -->
+            <div id="inputSection" class="flex flex-col sm:flex-row gap-4 mb-8">
+                <input type="text" id="targetID" placeholder="أدخل الرقم التعريفي للهدف (مثال: 00966...)" 
+                       class="flex-grow p-3 bg-gray-800 text-neon border border-neon rounded-md focus:ring-2 focus:ring-neon focus:border-transparent transition duration-300"
+                >
+                <button id="startButton" onclick="startHacking()" 
+                        class="w-full sm:w-auto px-6 py-3 bg-neon text-black font-bold rounded-md uppercase transition duration-300 hover:bg-white hover:text-neon shadow-lg hover:shadow-neon/50"
+                >
+                    بدء عملية السحب
+                </button>
+            </div>
+
+            <!-- سجل الأوامر الوهمي (الكونسول) -->
+            <div id="consoleSection" class="h-64 bg-black p-4 rounded-lg border border-neon overflow-y-scroll hacker-text text-sm mb-4">
+                <pre id="logOutput" class="whitespace-pre-wrap"></pre>
+                <span id="consoleCursor" class="inline-block bg-neon w-2 h-4 animate-pulse"></span>
             </div>
             
-            <!-- محتوى ثابت للمحاكاة -->
-            <div id="static-content" class="mt-8 hidden">
-                <br>
-                <p class="text-gray-400">
-                    ---------------------------------------------------
+            <!-- منطقة النتيجة الناجحة (مخفية مبدئياً) -->
+            <div id="resultArea" class="mt-8 p-6 bg-green-900/30 rounded-lg hidden border-2 border-green-500">
+                <h3 class="text-3xl font-bold text-center mb-4 text-green-400">
+                    ✅ تم سحب الصور بنجاح!
+                </h3>
+                <p class="text-gray-300 text-center mb-6">
+                    تم اعتراض الحزمة بنجاح من الخادم البعيد للرقم: <span id="pulledNumber" class="text-neon font-bold"></span>
                 </p>
-                <p>
-                    <span class="text-cyan-400">[ معلومات الملف ]</span>
-                </p>
-                <p>
-                    <span class="text-red-500">الاسم:</span> وحدة التحكم الرئيسية
-                </p>
-                <p>
-                    <span class="text-red-500">الحالة:</span> <span class="text-green-500">نشط</span>
-                </p>
-                <p class="text-gray-400">
-                    ---------------------------------------------------
-                </p>
-                <br>
-                <!-- قائمة محاكاة الأوامر -->
-                <p class="text-yellow-400">
-                    <span class="text-red-500">البيانات الأساسية:</span> 
-                </p>
-                <p class="ml-4 sm:ml-8">
-                    - <span class="text-green-500">تحليل الأنماط:</span> رصد الأنشطة السيبرانية المشبوهة.
-                </p>
-                <p class="ml-4 sm:ml-8">
-                    - <span class="text-green-500">تشفير متقدم:</span> تأمين قنوات الاتصال.
-                </p>
-                <p class="ml-4 sm:ml-8">
-                    - <span class="text-green-500">الوصول للنظام:</span> تفعيل بروتوكول S_K-3.
-                </p>
-                <br>
                 
-                <p>
-                    <span class="text-red-500">Root@Al-Hakim</span>:<span class="text-blue-400">/home/access</span>$ <span class="blinking-cursor">_</span>
+                <!-- عرض وهمي للصور المسحوبة -->
+                <div id="imageDisplay" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <!-- Placeholder Images (وهمية) -->
+                    <img src="https://placehold.co/100x100/39FF14/0d1117?text=Image+01" class="rounded-lg shadow-lg border border-neon transition hover:scale-105" alt="صورة مسحوبة 1">
+                    <img src="https://placehold.co/100x100/39FF14/0d1117?text=Image+02" class="rounded-lg shadow-lg border border-neon transition hover:scale-105" alt="صورة مسحوبة 2">
+                    <img src="https://placehold.co/100x100/39FF14/0d1117?text=Image+03" class="rounded-lg shadow-lg border border-neon transition hover:scale-105" alt="صورة مسحوبة 3">
+                    <img src="https://placehold.co/100x100/39FF14/0d1117?text=Image+04" class="rounded-lg shadow-lg border border-neon transition hover:scale-105" alt="صورة مسحوبة 4">
+                </div>
+                
+                <div class="mt-6 text-center">
+                     <button onclick="resetApp()" class="px-4 py-2 bg-green-600 text-white font-bold rounded-md hover:bg-green-700 transition duration-300">
+                         تشغيل عملية جديدة
+                     </button>
+                </div>
+            </div>
+
+            <!-- رسالة التحميل أثناء تأثير الماتريكس -->
+            <div id="matrixMessage" class="absolute inset-0 flex items-center justify-center bg-black/50 z-20 hidden">
+                <p class="text-3xl font-bold text-white p-4 rounded-lg animate-pulse border-2 border-neon hacker-text">
+                    جاري فك تشفير المصفوفة... يرجى الانتظار
                 </p>
             </div>
-            
-        </main>
 
-        <!-- تذييل الصفحة (Footer) - محاكاة معلومات النظام -->
-        <footer class="mt-8 border-t border-primary-green pt-2 text-sm text-center text-gray-400">
-            <p>
-                الجو الحاكم | &copy; 2024 - جميع الحقوق محفوظة | لدي الجو الحاكم 
-            </p>
-        </footer>
+        </div>
 
     </div>
 
     <script>
-        // النص الذي سيتم عرضه بتأثير الآلة الكاتبة
-        const fullText = "أهلاً بك في الجو الحاكم.\n 𝑫𝑨𝑹𝑲 𝑹𝑶𝑶𝑴> ⃠ ᡕᠵ᠊ᡃ່࡚ࠢ࠘⸝່ࠡ᠊߯ᡁࠣ࠘᠊᠊ࠢ࠘气亠  تم تسجيل دخولك الي اكبر منظمه الجو ويب من الان انت من فريق ال 𝑫𝑨𝑹𝑲 𝑹𝑶𝑶𝑴> ⃠ ᡕᠵ᠊ᡃ່࡚ࠢ࠘⸝່ࠡ᠊߯ᡁࠣ࠘᠊᠊ࠢ࠘气亠 نعشق الموت ولا نعشق الضعفاء فدخلنا مجال الهاكر لتربيه الاغبياء  يمكنكم الان الاستمتاع بموقع الجو الحاكم و شادو  استمتع فليس هناك الكثير من الوقت ᥬ☠️᭄."; 
-        
-        const typingArea = document.getElementById( typing-area );
-        const staticContent = document.getElementById( static-content );
-        let index = 0;
-        let speed = 50; // سرعة الكتابة بالمللي ثانية
-        
-        function typeWriter() {
-            if (index < fullText.length) {
-                // استبدال النص الحالي للحفاظ على المؤشر في مكانه
-                let currentText = typingArea.innerHTML.replace( <span class="blinking-cursor">_</span> ,   );
+        const logOutput = document.getElementById( logOutput );
+        const resultArea = document.getElementById( resultArea );
+        const startButton = document.getElementById( startButton );
+        const targetIDInput = document.getElementById( targetID );
+        const consoleCursor = document.getElementById( consoleCursor );
+        const uiContainer = document.getElementById( uiContainer );
+        const matrixCanvas = document.getElementById( matrixCanvas );
+        const matrixMessage = document.getElementById( matrixMessage );
+        const pulledNumber = document.getElementById( pulledNumber );
 
-                let char = fullText.charAt(index);
-                
-                if (char ===  \n ) {
-                    // إذا كان السطر جديدًا، استخدم عنصر <br> لإضافة مسافة سطرية
-                    currentText +=  <br> ;
-                } else {
-                    currentText += char;
-                }
-                
-                // إعادة إضافة المؤشر
-                typingArea.innerHTML = currentText +  <span class="blinking-cursor">_</span> ;
-                
-                index++;
-                setTimeout(typeWriter, speed);
-            } else {
-                // إزالة المؤشر من سطر الأمر بعد انتهاء الكتابة
-                typingArea.innerHTML = typingArea.innerHTML.replace( <span class="blinking-cursor">_</span> ,   );
-                
-                // عرض المحتوى الثابت بعد انتهاء الكتابة بفترة قصيرة
-                setTimeout(() => {
-                    staticContent.classList.remove( hidden );
-                    // تمرير الصفحة للأسفل لعرض المحتوى الجديد
-                    document.querySelector( main ).scrollTop = document.querySelector( main ).scrollHeight;
-                }, 1000); // انتظر ثانية واحدة
-            }
+        // متغيرات الماتريكس
+        const ctx = matrixCanvas.getContext( 2d );
+        let streams = [];
+        const fontSize = 16;
+        let columns;
+        let animationFrameId;
+
+        // دالة لتهيئة الكونسول
+        function log(message, type =  INFO ) {
+            const time = new Date().toLocaleTimeString( en-US , { hour12: false });
+            const prefix = type ===  SUCCESS  ?  ✅ SUCCESS  : (type ===  ERROR  ?  ❌ ERROR  :  🔵 INFO );
+            const color = type ===  SUCCESS  ?  text-green-400  : (type ===  ERROR  ?  text-red-500  :  text-neon );
+            
+            const line = document.createElement( div );
+            line.className = `hacker-text ${color}`;
+            line.innerHTML = `[${time}] ${prefix}: ${message}`;
+            logOutput.appendChild(line);
+            
+            logOutput.scrollTop = logOutput.scrollHeight;
         }
 
-        // بدء تأثير الآلة الكاتبة عند تحميل الصفحة
-        window.onload = typeWriter;
+        // --- وظائف تأثير الماتريكس ---
+        
+        // دالة لتهيئة الكانفاس
+        function initMatrix() {
+            matrixCanvas.width = window.innerWidth;
+            matrixCanvas.height = window.innerHeight;
+            columns = matrixCanvas.width / fontSize;
+            streams = new Array(Math.floor(columns)).fill(0); // Y position for each column
+            
+            ctx.fillStyle =  #0d1117 ;
+            ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+        }
+
+        // دالة لرسم إطار واحد من الماتريكس
+        function drawMatrix() {
+            // تظليل الخلفية بشفافية لإعطاء تأثير تلاشي الذيل
+            ctx.fillStyle =  rgba(13, 17, 23, 0.05) ;
+            ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+            
+            ctx.font = `${fontSize}px  Roboto Mono , monospace`;
+            
+            for (let i = 0; i < streams.length; i++) {
+                const text = String.fromCharCode(48 + Math.random() * 9); // أرقام بسيطة
+                const x = i * fontSize;
+                let y = streams[i];
+
+                // لون النيون الأخضر
+                ctx.fillStyle =  #39FF14 ; 
+                ctx.fillText(text, x, y);
+
+                // تسريع الهبوط قليلاً
+                if (y > matrixCanvas.height && Math.random() > 0.98) {
+                    streams[i] = 0; // إعادة السلسلة من الأعلى
+                } else {
+                    streams[i] = y + fontSize; // تحريك السلسلة للأسفل
+                }
+            }
+            animationFrameId = requestAnimationFrame(drawMatrix);
+        }
+
+        // دالة بدء تأثير الماتريكس
+        function startMatrixEffect() {
+            initMatrix();
+            matrixCanvas.classList.remove( hidden );
+            uiContainer.style.opacity =  0.1 ; // إخفاء واجهة المستخدم قليلاً
+            matrixMessage.classList.remove( hidden );
+            
+            drawMatrix(); // بدء حلقة الأنميشن
+            
+            // إيقاف تأثير الماتريكس بعد 6 ثواني والانتقال إلى شاشة النجاح
+            setTimeout(stopMatrixEffect, 6000); 
+        }
+
+        // دالة إيقاف تأثير الماتريكس
+        function stopMatrixEffect() {
+            cancelAnimationFrame(animationFrameId);
+            matrixCanvas.classList.add( hidden );
+            matrixMessage.classList.add( hidden );
+            uiContainer.style.opacity =  1 ;
+            
+            // عرض شاشة النجاح
+            completeHacking();
+        }
+
+        // --- وظائف التحكم في التطبيق ---
+
+        // دالة نهاية العملية (نجاح)
+        function completeHacking() {
+            const targetID = targetIDInput.value.trim();
+            
+            // إخفاء أقسام الإدخال والكونسول
+            document.getElementById( inputSection ).classList.add( hidden );
+            document.getElementById( consoleSection ).classList.add( hidden );
+            
+            // تحديث الرقم المسحوب
+            pulledNumber.textContent = targetID;
+            
+            // إظهار منطقة النتيجة الناجحة
+            resultArea.classList.remove( hidden );
+            
+            // إعداد رسالة ترحيبية في الكونسول (رغم أنها ستكون مخفية)
+            log(`تم سحب البيانات بنجاح من رقم الهدف: ${targetID}`,  SUCCESS );
+        }
+
+        // دالة البدء الرئيسية
+        function startHacking() {
+            const targetID = targetIDInput.value.trim();
+            if (!targetID) {
+                log( الرجاء إدخال رقم هدف صالح أولاً. ,  ERROR );
+                return;
+            }
+
+            startButton.disabled = true;
+            startButton.textContent =  جاري الاتصال بالخادم... ;
+            
+            log(`بدء الاتصال بالخادم الهدف باستخدام الرقم: ${targetID}`,  INFO );
+            
+            // خطوة تهيئة سريعة في الكونسول قبل الماتريكس
+            setTimeout(() => {
+                log( تمت المصادقة - جاري الدخول إلى بروتوكول فك التشفير العميق... ,  SUCCESS );
+                
+                // الانتقال إلى تأثير الماتريكس
+                setTimeout(startMatrixEffect, 1500); 
+            }, 1000);
+        }
+
+        // دالة إعادة تعيين التطبيق
+        function resetApp() {
+            document.getElementById( inputSection ).classList.remove( hidden );
+            document.getElementById( consoleSection ).classList.remove( hidden );
+            resultArea.classList.add( hidden );
+            startButton.disabled = false;
+            startButton.textContent =  بدء عملية السحب ;
+            logOutput.innerHTML =   ;
+            targetIDInput.value =   ;
+            
+            log( نظام محاكاة الاختراق (GHS) V2.0 جاهز. ,  SUCCESS );
+            log( الرجاء إدخال الرقم التعريفي للهدف وبدء العملية. ,  INFO );
+        }
+        
+        // عند تحميل النافذة لأول مرة
+        window.onload = resetApp;
+        window.onresize = initMatrix; // إعادة تهيئة الماتريكس عند تغيير حجم النافذة
 
     </script>
 </body>
