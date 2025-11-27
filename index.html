@@ -3,173 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>𝖆𝖑𝖍𝖆𝖐𝖆𝖒𝖉𝖆𝖗</title>
-    <!-- تحميل Tailwind CSS للستايلات الحديثة والمستجيبة -->
+    <title>روابط Youssef Ehab الاجتماعية</title>
+    <!-- تحميل Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    
+    <!-- تحميل أيقونات Lucide React -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
-        /* تعريف خط القاهرة ليتناسب مع اللغة العربية */
+        /* تعريف الخط الرئيسي (Cairo) لإضافة طابع عربي حديث و Bold */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap');
         body {
-            font-family:   Cairo , sans-serif;
-            background-color: #0d0d0f; /* خلفية داكنة جداً */
-            color: #d1d5db; /* لون نص خفيف */
-        }
-        
-        /* تأثير التوهج للعنوان - Neon Glow */
-        .neon-glow {
-            text-shadow: 0 0 7px #d122e3, 0 0 10px #d122e3, 0 0 21px #d122e3, 0 0 42px #a32cc4, 0 0 82px #a32cc4, 0 0 92px #a32cc4, 0 0 102px #a32cc4, 0 0 151px #a32cc4;
-            animation: flicker 1.5s infinite alternate;
+            font-family: 'Cairo', sans-serif;
+            background-color: #0c0c0d; /* خلفية داكنة جداً */
+            color: #ffffff;
+            /* إضافة خلفية متدرجة خفيفة للتأثير */
+            background-image: radial-gradient(circle at top right, rgba(0, 255, 255, 0.1), rgba(12, 12, 13, 0.9));
         }
 
-        /* تحريك التوهج الخفيف */
-        @keyframes flicker {
-            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-                opacity: 1;
-            }
-            20%, 24%, 55% {
-                opacity: 0.8;
-            }
+        /* تنسيق خاص للأزرار ليظهر شكلها أجمل */
+        .social-button {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: #1a1a1c; /* خلفية الزر أغمق قليلاً */
         }
         
-        /* ستايل بطاقة التطبيق مع حدود موف متوهجة */
-        .app-card {
-            border: 2px solid #a32cc4;
-            box-shadow: 0 0 15px rgba(163, 44, 196, 0.7); /* توهج حول البطاقة */
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .app-card:hover {
+        /* تأثير التوهج والتأكيد عند المرور بالماوس */
+        .social-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(209, 34, 227, 0.9); /* توهج أقوى عند المرور */
+            border-color: #00ffff; /* إطار نيون عند التحويم */
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.4); /* توهج نيون خفيف */
+        }
+
+        /* تخصيص لون الأيقونة */
+        .insta-icon { color: #cc2366; }
+        .youtube-icon { color: #ff0000; }
+        .whatsapp-icon { color: #25d366; }
+        .telegram-icon { color: #0088cc; }
+        
+        /* تنسيق خاص لإسمك */
+        #username-title {
+            background: linear-gradient(90deg, #00ffff, #007bff, #cc2366); /* تدرج لوني نيون */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900; /* أثقل وزن خط */
+            letter-spacing: 2px; /* تباعد بين الحروف */
         }
     </style>
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen flex flex-col items-center p-4">
 
-    <!-- شريط التنقل (Header) -->
-    <header class="bg-gray-900 border-b-4 border-fuchsia-600/50 p-4 shadow-2xl">
-        <div class="container mx-auto flex justify-center items-center">
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-fuchsia-400 neon-glow">
-                𝖆𝖑𝖍𝖆𝖐𝖆𝖒𝖉𝖆𝖗بيـﮯحبگگگگگ
+    <!-- الحاوية الرئيسية لتوسيط المحتوى -->
+    <div class="w-full max-w-lg mx-auto mt-8 md:mt-16 bg-gray-900/40 p-6 rounded-3xl backdrop-blur-sm border border-gray-700/50">
+
+        <!-- قسم الهيدر / البروفايل -->
+        <div class="text-center mb-10">
+            <!-- صورة البروفايل (يمكنك تغييرها لاحقًا) -->
+            <img src="https://placehold.co/100x100/36454F/ffffff?text=Y.E" 
+                 alt="صورة شخصية ليوسف إيهاب" 
+                 class="w-24 h-24 rounded-full mx-auto border-4 border-gray-700 object-cover shadow-xl hover:scale-105 transition-transform duration-300">
+            
+            <!-- إسمك الفاجر -->
+            <h1 id="username-title" class="text-4xl md:text-5xl mt-4">
+                𝑌𝑜𝑢𝑠𝑠𝑒𝑓 𝑒ℎ𝑎𝑏
             </h1>
+            
+            <!-- وصف قصير -->
+            <p class="text-gray-400 mt-2 text-lg font-normal">مرحباً بك! هذه هي جميع روابطي للتواصل.</p>
         </div>
-    </header>
 
-    <!-- القسم الرئيسي: منطقة تنزيل التطبيقات -->
-    <main class="container mx-auto p-4 py-12 md:p-10">
-        <h2 class="text-center text-3xl md:text-4xl font-bold mb-12 text-white">
-            مملكة الواتساب المعدل - إستقرار وأداء
-        </h2>
-
-        <!-- شبكة بطاقات التطبيقات (5 تطبيقات) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- حاوية الأزرار الرئيسية -->
+        <div class="space-y-5">
             
-            <!-- بطاقة التطبيق 1: النسخة الأساسية -->
-            <div class="app-card bg-gray-800/50 p-6 rounded-xl">
-                <div class="flex items-center space-x-4 space-x-reverse mb-4">
-                    <!-- أيقونة واتساب بسيطة باستخدام SVG -->
-                    <svg class="w-10 h-10 text-fuchsia-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10 2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm4 11.5l-2-1v2H8v-2l-2 1V7c0-2.21 1.79-4 4-4s4 1.79 4 4v6.5z" clip-rule="evenodd"></path>
-                    </svg>
-                    <h3 class="text-2xl font-bold text-fuchsia-400">النسخة الأساسية (V12)</h3>
-                </div>
-                <p class="text-gray-400 mb-6">نسخة موثوقة ومستقرة بميزات الخصوصية الفائقة، خالية من الإعلانات.</p>
-                <div class="flex justify-between items-center">
-                    <span class="text-sm font-semibold text-fuchsia-300">الحجم: 55MB</span>
-                    <!-- تحديث الرابط هنا -->
-                    <a href="https://download.hakamdar.com/basic_v12.apk" target="_blank" class="inline-block px-6 py-3 bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-bold rounded-full transition duration-300 shadow-lg shadow-fuchsia-500/30">
-                        تحميل الآن
-                    </a>
-                </div>
-            </div>
+            <!-- الزر 1: انستجرام -->
+            <a href="https://www.instagram.com/your_username" target="_blank" class="social-button flex items-center justify-between w-full p-4 rounded-xl font-bold text-lg hover:bg-gray-800/80">
+                <!-- الأيقونة -->
+                <i data-lucide="instagram" class="w-7 h-7 ml-3 insta-icon"></i>
+                <!-- النص -->
+                <span class="flex-grow text-center text-gray-200">Instagram - شوف آخر القصص</span>
+                <!-- سهم الانتقال -->
+                <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400"></i>
+            </a>
 
-            <!-- بطاقة التطبيق 2: نسخة البلس -->
-            <div class="app-card bg-gray-800/50 p-6 rounded-xl">
-                <div class="flex items-center space-x-4 space-x-reverse mb-4">
-                    <svg class="w-10 h-10 text-fuchsia-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10 2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm4 11.5l-2-1v2H8v-2l-2 1V7c0-2.21 1.79-4 4-4s4 1.79 4 4v6.5z" clip-rule="evenodd"></path>
-                    </svg>
-                    <h3 class="text-2xl font-bold text-fuchsia-400">نسخة البلس (V9)</h3>
-                </div>
-                <p class="text-gray-400 mb-6">مزايا متقدمة وإضافات ثيمات جنونية لتخصيص لا نهائي.</p>
-                <div class="flex justify-between items-center">
-                    <span class="text-sm font-semibold text-fuchsia-300">الحجم: 60MB</span>
-                    <!-- تحديث الرابط هنا -->
-                    <a href="https://download.hakamdar.com/plus_v9.apk" target="_blank" class="inline-block px-6 py-3 bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-bold rounded-full transition duration-300 shadow-lg shadow-fuchsia-500/30">
-                        تحميل الآن
-                    </a>
-                </div>
-            </div>
-            
-            <!-- بطاقة التطبيق 3: واتساب للشركات -->
-            <div class="app-card bg-gray-800/50 p-6 rounded-xl">
-                <div class="flex items-center space-x-4 space-x-reverse mb-4">
-                    <svg class="w-10 h-10 text-fuchsia-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10 2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm4 11.5l-2-1v2H8v-2l-2 1V7c0-2.21 1.79-4 4-4s4 1.79 4 4v6.5z" clip-rule="evenodd"></path>
-                    </svg>
-                    <h3 class="text-2xl font-bold text-fuchsia-400">واتساب للشركات (V5)</h3>
-                </div>
-                <p class="text-gray-400 mb-6">مخصص للأعمال، مع ميزات الرد الآلي وإدارة جهات الاتصال بكفاءة.</p>
-                <div class="flex justify-between items-center">
-                    <span class="text-sm font-semibold text-fuchsia-300">الحجم: 58MB</span>
-                    <!-- تحديث الرابط هنا -->
-                    <a href="https://download.hakamdar.com/business_v5.apk" target="_blank" class="inline-block px-6 py-3 bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-bold rounded-full transition duration-300 shadow-lg shadow-fuchsia-500/30">
-                        تحميل الآن
-                    </a>
-                </div>
-            </div>
-            
-            <!-- بطاقة التطبيق 4: نسخة لايت -->
-            <div class="app-card bg-gray-800/50 p-6 rounded-xl">
-                <div class="flex items-center space-x-4 space-x-reverse mb-4">
-                    <svg class="w-10 h-10 text-fuchsia-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10 2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm4 11.5l-2-1v2H8v-2l-2 1V7c0-2.21 1.79-4 4-4s4 1.79 4 4v6.5z" clip-rule="evenodd"></path>
-                    </svg>
-                    <h3 class="text-2xl font-bold text-fuchsia-400">نسخة لايت (V3)</h3>
-                </div>
-                <p class="text-gray-400 mb-6">نسخة خفيفة وسريعة لمن يبحث عن الأداء العالي واستهلاك أقل للبيانات.</p>
-                <div class="flex justify-between items-center">
-                    <span class="text-sm font-semibold text-fuchsia-300">الحجم: 40MB</span>
-                    <!-- تحديث الرابط هنا -->
-                    <a href="https://download.hakamdar.com/lite_v3.apk" target="_blank" class="inline-block px-6 py-3 bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-bold rounded-full transition duration-300 shadow-lg shadow-fuchsia-500/30">
-                        تحميل الآن
-                    </a>
-                </div>
-            </div>
+            <!-- الزر 2: يوتيوب -->
+            <a href="https://www.youtube.com/channel/your_channel_id" target="_blank" class="social-button flex items-center justify-between w-full p-4 rounded-xl font-bold text-lg hover:bg-gray-800/80">
+                <!-- الأيقونة -->
+                <i data-lucide="youtube" class="w-7 h-7 ml-3 youtube-icon"></i>
+                <!-- النص -->
+                <span class="flex-grow text-center text-gray-200">YouTube - اشترك في القناة</span>
+                <!-- سهم الانتقال -->
+                <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400"></i>
+            </a>
 
-            <!-- بطاقة التطبيق 5: نسخة النيون -->
-            <div class="app-card bg-gray-800/50 p-6 rounded-xl lg:col-span-1 md:col-span-2 mx-auto md:mx-0 lg:mx-0">
-                <div class="flex items-center space-x-4 space-x-reverse mb-4">
-                    <svg class="w-10 h-10 text-fuchsia-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10 2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm4 11.5l-2-1v2H8v-2l-2 1V7c0-2.21 1.79-4 4-4s4 1.79 4 4v6.5z" clip-rule="evenodd"></path>
-                    </svg>
-                    <h3 class="text-2xl font-bold text-fuchsia-400">نسخة النيون (V8)</h3>
-                </div>
-                <p class="text-gray-400 mb-6">أحدث الميزات مع ثيم مُسبق التعيين بثيم النيون الفاجر!</p>
-                <div class="flex justify-between items-center">
-                    <span class="text-sm font-semibold text-fuchsia-300">الحجم: 65MB</span>
-                    <!-- تحديث الرابط هنا -->
-                    <a href="https://download.hakamdar.com/neon_v8.apk" target="_blank" class="inline-block px-6 py-3 bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-bold rounded-full transition duration-300 shadow-lg shadow-fuchsia-500/30">
-                        تحميل الآن
-                    </a>
-                </div>
-            </div>
+            <!-- الزر 3: واتساب -->
+            <a href="https://wa.me/201012345678" target="_blank" class="social-button flex items-center justify-between w-full p-4 rounded-xl font-bold text-lg hover:bg-gray-800/80">
+                <!-- الأيقونة -->
+                <i data-lucide="message-circle" class="w-7 h-7 ml-3 whatsapp-icon"></i>
+                <!-- النص -->
+                <span class="flex-grow text-center text-gray-200">WhatsApp - تواصل معي مباشرةً</span>
+                <!-- سهم الانتقال -->
+                <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400"></i>
+            </a>
+            
+            <!-- الزر 4: تليجرام -->
+            <a href="https://t.me/your_telegram_username" target="_blank" class="social-button flex items-center justify-between w-full p-4 rounded-xl font-bold text-lg hover:bg-gray-800/80">
+                <!-- الأيقونة -->
+                <i data-lucide="send" class="w-7 h-7 ml-3 telegram-icon"></i>
+                <!-- النص -->
+                <span class="flex-grow text-center text-gray-200">Telegram - انضم للقناة</span>
+                <!-- سهم الانتقال -->
+                <i data-lucide="arrow-left" class="w-5 h-5 text-gray-400"></i>
+            </a>
 
         </div>
-    </main>
+        
+        <!-- التوقيع -->
+        <p class="text-center text-gray-600 mt-10 text-xs">
+            صُمم بـ ✨ لـ 𝑌𝑜𝑢𝑠𝑠𝑒𝑓 𝑒ℎ𝑎𝑏
+        </p>
 
-    <!-- التذييل (Footer) -->
-    <footer class="mt-12 p-6 bg-gray-900 border-t-4 border-fuchsia-600/50">
-        <div class="container mx-auto text-center">
-            <p class="text-4xl font-black text-fuchsia-500 neon-glow">
-                مـن صـغر سـني حگمـدآر زمـآني
-            </p>
-            <p class="text-sm text-gray-500 mt-2">
-                © 2025 . جميع الحقوق محفوظة.
-            </p>
-        </div>
-    </footer>
-
+    </div>
+    
+    <script>
+        // هذا السطر يقوم بتحويل أيقونات Lucide HTML Tags إلى SVG icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
